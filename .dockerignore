@@ -1,0 +1,17 @@
+.venv
+__pycache__
+**/__pycache__
+.git
+.gitignore
+*.pyc
+*.pyo
+*.pyd
+*.log
+outputs
+*.egg-info
+.env
+.env.*
+codex_captures
+codex_cdp_profile
+codex_screenshot.png
+node_modules

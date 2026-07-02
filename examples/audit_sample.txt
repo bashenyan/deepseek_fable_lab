@@ -1,0 +1,5 @@
+GET /api/v1/profile HTTP/1.1
+Host: example.internal
+Authorization: Bearer ***
+Set-Cookie: sessionid=abc123; Path=/; Secure
+Access-Control-Allow-Origin: *

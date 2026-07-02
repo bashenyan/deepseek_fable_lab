@@ -1,0 +1,2 @@
+{"messages":[{"role":"system","content":"你是一个离线消息分类助手，只能基于自有数据进行分类。"},{"role":"user","content":"验证码 482910，5 分钟内有效"},{"role":"assistant","content":"{\"label\":\"验证码\",\"confidence\":0.97,\"reason\":\"包含验证码关键词和数字验证码模式。\"}"}]}
+{"messages":[{"role":"system","content":"你是一个离线消息分类助手，只能基于自有数据进行分类。"},{"role":"user","content":"系统告警：支付服务 5xx 错误率升高"},{"role":"assistant","content":"{\"label\":\"告警\",\"confidence\":0.94,\"reason\":\"包含系统告警和错误率异常信息。\"}"}]}

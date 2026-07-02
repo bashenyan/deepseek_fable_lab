@@ -1,0 +1,61 @@
+services:
+  audit:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: deepseek-fable-audit:latest
+    profiles: ["audit"]
+    environment:
+      APP_MODE: audit
+      HOST: 0.0.0.0
+      PORT: 8010
+      API_KEY_ENV: DEEPSEEK_FABLE_API_KEY
+      DEEPSEEK_FABLE_API_KEY: ${DEEPSEEK_FABLE_API_KEY:-}
+    ports:
+      - "${AUDIT_PORT:-8010}:8010"
+    restart: unless-stopped
+
+  telegram:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: deepseek-fable-telegram:latest
+    profiles: ["telegram"]
+    environment:
+      APP_MODE: telegram
+      HOST: 0.0.0.0
+      PORT: 8020
+      API_KEY_ENV: DEEPSEEK_FABLE_API_KEY
+      DEEPSEEK_FABLE_API_KEY: ${DEEPSEEK_FABLE_API_KEY:-}
+    ports:
+      - "${TELEGRAM_PORT:-8020}:8020"
+    restart: unless-stopped
+
+  model:
+    build:
+      context: .
+      dockerfile: Dockerfile.model
+      args:
+        TORCH_INDEX_URL: ${TORCH_INDEX_URL:-}
+    image: deepseek-fable-model:latest
+    profiles: ["model"]
+    environment:
+      APP_MODE: serve
+      HOST: 0.0.0.0
+      PORT: 8000
+      BASE_MODEL: ${BASE_MODEL:-Chunjiang-Intelligence/DeepSeek-v4-Fable}
+      MODEL_PATH: ${MODEL_PATH:-}
+      LORA_PATH: ${LORA_PATH:-}
+      DEVICE: ${DEVICE:-auto}
+      DTYPE: ${DTYPE:-auto}
+      API_KEY_ENV: DEEPSEEK_FABLE_API_KEY
+      DEEPSEEK_FABLE_API_KEY: ${DEEPSEEK_FABLE_API_KEY:-}
+    ports:
+      - "${MODEL_PORT:-8000}:8000"
+    volumes:
+      - ./outputs:/app/outputs
+      - hf-cache:/root/.cache/huggingface
+    restart: unless-stopped
+
+volumes:
+  hf-cache:

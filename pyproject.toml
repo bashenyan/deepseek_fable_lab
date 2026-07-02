@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepseek-fable-lab"
+version = "0.1.0"
+description = "DeepSeek-V4-Fable 二次训练与服务封装工具"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools]
+package-dir = { "deepseek_fable_lab" = "." }
+packages = ["deepseek_fable_lab"]

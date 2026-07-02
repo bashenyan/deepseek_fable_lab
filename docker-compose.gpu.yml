@@ -1,0 +1,9 @@
+services:
+  model:
+    build:
+      args:
+        TORCH_INDEX_URL: ${TORCH_INDEX_URL:-https://download.pytorch.org/whl/cu126}
+    environment:
+      DEVICE: cuda
+      DTYPE: fp16
+    gpus: all

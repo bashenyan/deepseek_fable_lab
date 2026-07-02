@@ -1,0 +1,2 @@
+{"messages":[{"role":"system","content":"你是一个受控环境中的安全研究助手。"},{"role":"user","content":"请总结这个题目的解题思路。"},{"role":"assistant","content":"先确认目标环境、入口和约束条件，再按信息收集、假设验证、步骤回放的顺序推进。"}]}
+{"messages":[{"role":"user","content":"如何整理一份 CTF 复盘？"},{"role":"assistant","content":"建议包含环境、发现、验证、失败路径、最终利用链和复现命令，便于后续复训。"}]}
